@@ -6,6 +6,8 @@
           "**/*.md",
           "**/*.yml"
         ],
+		"group": "legacy",
+		"src": "legacy",
         "exclude": [
           "**/obj/**",
           "**/includes/**",
@@ -16,6 +18,23 @@
           "LICENSE-CODE",
           "ThirdPartyNotices"
         ]
+      },
+	  {
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "group": "active",
+        "exclude": [
+          "**/obj/**",
+          "**/includes/**",
+          "_themes/**",
+          "README.md",
+          "LICENSE",
+          "LICENSE-CODE",
+          "ThirdPartyNotices"
+        ],
+        "src": "active"
       }
     ],
     "resource": [
@@ -29,7 +48,21 @@
           "**/includes/**",
           "_themes/**",
           "_themes.pdf/**"
-        ]
+        ],
+		"src": "legacy",
+        "group": "legacy"
+      },
+	  {
+        "files": [
+          "**/*.png",
+          "**/*.jpg"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "**/includes/**"
+        ],
+        "src": "active",
+        "group": "active"
       }
     ],
     "overwrite": [],
@@ -41,6 +74,16 @@
     "fileMetadata": {},
     "template": [],
     "dest": "e2eprod-version",
-    "markdownEngineName": "markdig"
+    "markdownEngineName": "markdig",
+	"groups": {
+      "legacy": {
+        "dest": "legacy",
+        "moniker_range": "< contososerver-2.0"
+      }, 
+      "active": {
+        "dest": "active",
+        "moniker_range": ">= contososerver-2.0 || >= contosoclient-1.0"
+      }
+    }	
   }
 }
